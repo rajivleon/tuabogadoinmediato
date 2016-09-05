@@ -1,0 +1,123 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16/05/2016, 08:56:40 PM
+    Author     : rajiv
+*/
+
+.jumbotron {
+    margin-bottom: 0px;
+    border-radius: 5px;    
+    background-image: url(../images/despacho.jpg);
+    background-position: 0% 60%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    color: white;
+    font-size: 36px;
+    text-shadow: black 0.3em 0.3em 0.3em;
+}
+
+.texto-solitario{
+     font-family: sans-serif;
+    font-size: 16px;
+    color: #000;
+    text-align: justify;
+    font-style:  normal;
+}
+
+.texto-preguntas{
+     font-family: sans-serif;
+    font-size: 14px;
+    color: #838383;
+    text-align: justify;
+    font-style:  normal;
+}
+
+.texto-preguntas :hover{
+     font-family: sans-serif;
+    font-size: 14px;
+    color: #000;
+    text-align: justify;
+    font-style:  normal;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.section-size {
+    padding-bottom:50px;
+    padding-top:50px;
+}
+
+.section-font{
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000;
+    text-align: justify;
+    font-style:  normal;
+}
+
+.text-widget{
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #000;
+    text-align: justify;
+    font-style:  normal; 
+}
+
+.row.vdivide [class*='col-']:not(:last-child):after {
+  background: #e0e0e0;
+  width: 1px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  min-height: 70px;
+}
+
+.link-blanco{
+    color:#fff;
+}
+
+.puntero{
+  cursor: pointer;  
+}
+
+.separa_left{
+    margin-right:2%;
+}
+
+.tituloPrincipal{
+    font-family: sans-serif;
+    font-style: normal;
+    font-size: 40px;
+}
+
+#seccion-descripcion {
+    background-color:#fff;
+}
+
+#seccion-solicitudes {
+    background-color:#fff;
+}
+
+#seccion-documentos {
+    background-color:#fff;
+}
+
+#seccion-articulos {
+    background-color:#fff;
+}
+
+#seccion-contactos {
+    background-color:#fff;
+}
+
+#condicionesText{
+    font-size: 12px;
+}
