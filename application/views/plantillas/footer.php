@@ -41,12 +41,19 @@
 <script src="<?php echo base_url('assets/adminlte')?>/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url('assets/adminlte')?>/plugins/fastclick/fastclick.js"></script>
+
+<?php if(isset($admilteJs)){
+    foreach($admilteJs as $js){
+        echo '<script src="'.base_url('assets/adminlte').$js.'"></script>';
+    }
+}
+?>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url('assets/adminlte')?>/dist/js/app.min.js"></script>
 
  <?php
     if(isset($pagina)){
-        $archivo = base_url('js/').'/'.$pagina.'.js';
+       $archivo = base_url('js/').'/'.$pagina.'.js';
         echo '<script src="'.$archivo.'"></script>';
     }?>
 

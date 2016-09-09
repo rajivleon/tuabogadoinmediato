@@ -26,8 +26,15 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/adminlte')?>/plugins/daterangepicker/daterangepicker-bs3.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url('assets/adminlte')?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+  <?php if(isset($admilteCss)){
+            foreach($admilteCss as $css){
+                echo '<link rel="stylesheet" href="'.base_url('assets/adminlte').$css.'">';
+            }
+        }?>
   
   <link rel="stylesheet" href="<?php echo base_url('css')?>/estilos.css">
+  
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,14 +46,14 @@
 <body class="hold-transition skin-white sidebar-collapse layout-top-nav">
     <div class="wrapper">
         <header class="main-header">            
-            <nav class="navbar navbar-fixed-top bg-light-blue-gradient">
+            <nav class="navbar navbar-fixed-top bg-yellow-active with-border">
               <div class="container-fluid">
                 <div class="navbar-header">
                     <div class="row">
 <!--                        <div class="col-md-1" style="margin-top: 5px;">
                             <img src="<?php echo base_url()?>images/balanza.png" style="width: 32px;height: 32px"/>
                         </div>-->
-                        <div class="col-md-9 col-md-offset-1">
+                        <div class="col-md-1 col-md-offset-1">
                             <a href="#" class="navbar-brand section-font">www.tuabogadoinmediato.com</a>
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                                 <i class="fa fa-bars"></i>                   
@@ -58,11 +65,13 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse center" id="navbar-collapse">
-                  <ul class="nav navbar-nav">
-                    <?php if(!empty($barraSup)){
-                        echo $barraSup;
-                    }?>                      
-                  </ul>                   
+                    <div class="col-md-6 col-md-offset-3">
+                         <ul class="nav navbar-nav">
+                            <?php if(!empty($barraSup)){
+                                echo $barraSup;
+                            }?>                      
+                          </ul>     
+                    </div>                               
                     <ul class="nav navbar-nav navbar-right separa_left">
                         <li class="dropdown user-menu"><a href="" class="link-blanco link-silencioso dropdown-toggle" data-toggle="dropdown">Ingresa</a>
                              <ul class="dropdown-menu"> 

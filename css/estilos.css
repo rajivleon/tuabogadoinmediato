@@ -9,16 +9,14 @@ and open the template in the editor.
 */
 
 .jumbotron {
-    margin-bottom: 0px;
+    margin-bottom: 10px;
+    margin-top: -25px;
     border-radius: 5px;    
     background-image: url(../images/despacho.jpg);
     background-position: 0% 60%;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 400px;
-    color: white;
-    font-size: 36px;
-    text-shadow: black 0.3em 0.3em 0.3em;
+    height: 400px;    
 }
 
 .texto-solitario{
@@ -92,10 +90,12 @@ and open the template in the editor.
     margin-right:2%;
 }
 
-.tituloPrincipal{
-    font-family: sans-serif;
-    font-style: normal;
-    font-size: 40px;
+.jumbotron .tituloPrincipal{
+    font-family: serif;
+    font-style: italic;
+    font-size: 70px;
+    color: white;
+    text-shadow: -1px -2px #cccccc;    
 }
 
 #seccion-descripcion {
@@ -120,4 +120,16 @@ and open the template in the editor.
 
 #condicionesText{
     font-size: 12px;
+}
+
+.mensaje{
+    margin-bottom: 0px;
+    margin-top: 40px;
+   
+}
+
+.mensaje p{
+   font-family: sans-serif;
+   font-style: oblique;
+   font-size: 20px;   
 }

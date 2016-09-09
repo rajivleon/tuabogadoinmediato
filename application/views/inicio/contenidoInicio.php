@@ -1,5 +1,5 @@
 <!-- Content Header (Page header) -->
-        <section class="content-header">
+        <section class="content-header mensaje">
         <p class="texto-solitario">No hay problema sin solución, 
             ni solución sin conocimiento, 
             solo debes saber elegir a</p>
@@ -8,7 +8,7 @@
             <div class="row ">
                 <div class="col-lg-12 col-xs-6">
                     <div class="jumbotron">
-                         <p class="text-center tituloPrincipal">Tu Abogado Imediato</p>
+                         <p class="text-center tituloPrincipal">Tu Abogado Inmediato</p>
                     </div>
                 </div>
             </div>
