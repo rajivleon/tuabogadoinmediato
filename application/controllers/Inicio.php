@@ -16,14 +16,17 @@ class Inicio extends CI_Controller {
     
     public function __construct() {
         parent::__construct();
-         $this->load->helper('url');
-         $this->load->library('validaciones');
+        session_start();
+         $this->load->helper(['url','form']);
+         $this->load->library('validaciones');       
     }
     
     public function index($page = 'index') {
-        $this->validaciones->existePagina('inicio/'.$page);
-        $content['articulos'] = null;
-        $data['cuerpo'] = $this->load->view('inicio/contenidoInicio',$content,true);
+        $this->validaciones->existePagina('inicio/'.$page);    
+        $this->load->model('Articulo_model','art');
+        $dataArt['listaArticulos'] = $this->art->listaArticulo();
+        $content['articulos']= $this->load->view('articulo/lista',$dataArt,true);
+        $data['cuerpo'] = $this->load->view('inicio/contenidoInicio',$content,true);       
         $header['barraSup']= $this->load->view('inicio/barrasuperior',null,TRUE);
         $this->load->view('plantillas/header',$header);
         $this->load->view('plantillas/content',$data);

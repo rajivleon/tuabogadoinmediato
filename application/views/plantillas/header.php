@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <title>Tu Abogado Inmediato</title>
-  <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo base_url()?>images/Balanzas_thumb_A.ico" type="image/x-icon">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -73,35 +73,39 @@
                           </ul>     
                     </div>                               
                     <ul class="nav navbar-nav navbar-right separa_left">
+                        <?php if(!isset($_SESSION['login'])) {?>
                         <li class="dropdown user-menu"><a href="" class="link-blanco link-silencioso dropdown-toggle" data-toggle="dropdown">Ingresa</a>
                              <ul class="dropdown-menu"> 
-                                 <form method="post" role="form">
+                                <?php echo form_open('admin/acceso')?>
                                  <!-- Menu Body -->
                                     <li class="user-body login-box-body">                                       
                                             <div class="form-group has-feedback">
-                                                <input type="email" class="form-control" placeholder="Usuario">
+                                                <?php echo form_input(['id'=>'login','name'=>'login','maxlength'=>'140','class'=>'form-control','placeholder'=>'Login','required'=>true])?>                                                
                                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                                             </div>
                                             <div class="form-group has-feedback">
-                                                <input type="password" class="form-control" placeholder="Contraseña">
+                                                <?php echo form_password(['id'=>'password','name'=>'password','maxlength'=>'140','class'=>'form-control','placeholder'=>'Contraseña','required'=>true])?>
                                                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                             </div>
                                         <hr/>
                                   </li>
                                   <!-- Menu Footer-->
-                                  <li class="user-footer">
-                                    <div class="pull-left">
-                                      <a href="#" class="btn btn-default">Cerrar</a>
-                                    </div>
-                                    <div class="pull-right">
-                                      <a href="#" class="btn btn-default">Ingresar</a>
+                                  <li class="user-footer">                                  
+                                      <div class="col-xs-4 col-xs-offset-4">
+                                        <input type="submit" class="btn btn-default" value="Ingresar">
                                     </div>
                                   </li>
                                 </ul>
+                            <?php echo form_close()?>
                         </li>
+                        <?php }else{?>
+                        <li class="dropdown user-menu">
+                            <a href="<?php echo base_url('admin/cerrar')?>" class="btn btn-danger" >Cerrar</a>
+                        </li>                       
+                        <?php }?>
                         </form>
                     </ul>
                 </div>                 
             </nav>
         </header>
-  
+

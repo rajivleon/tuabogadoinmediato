@@ -1,4 +1,4 @@
-<?php
+<?php if (!defined('BASEPATH')) exit('No se permite el acceso directo al script');
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,23 +13,31 @@
  */
 class Usuario extends CI_Controller {
     
-    function __construct() {
+    public function __construct() {
         parent::__construct(); 
+        session_start();
         $this->load->helper(['url_helper','form','security']);
-        $this->load->library(['form_validation','table']); 
+        $this->load->library(['form_validation','table']);
         $this->load->model('usuario_model','usu');
-        
+        if(!isset($_SESSION['login'])){
+             redirect('inicio');
+        }
     }
     
-    public function index(){    
+  public function index(){    
         $this->form_validation->set_rules('login', 'Login', 'required|min_length[5]|max_length[90]|trim');  
         $this->form_validation->set_rules('nombre','Nombre','required|min_length[3]|max_length[45]|trim');        
         $this->form_validation->set_rules('apellido', 'Apellido', 'required|min_length[3]|max_length[45]|trim');
         $this->form_validation->set_rules('cedula','Cédula','required|numeric|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|min_length[20]|max_length[125]|trim');              
+        $this->form_validation->set_rules('email', 'Email', 'required|min_length[20]|max_length[125]|trim');         
         
-        if($this->form_validation->run()&&$this->usu->save()){           
-            redirect('usuario', 'refresh');
+        if($this->form_validation->run()){
+            if(!empty($this->input->post('id'))){
+                $this->usu->updateUser($this->input->post());
+            }else {
+                $this->usu->new_user($this->input->post());
+            }
+          redirect('usuario', 'refresh');
         }
         
         $data['title'] = 'Modulo de Usuarios';
@@ -46,15 +54,24 @@ class Usuario extends CI_Controller {
         
     }
     
-    public function eliminar(){    
-        $this->usu->delete();
+    public function eliminar(){
+        if($this->usu->deleteUser($this->input->post('id')))
+            redirect('usuario', 'refresh');
     }
     
     public function resetarPassword() {
-        $this->usu->resetearPass();
+        if($this->usu->resetearPass($this->input->post('id')))
+             redirect('usuario', 'refresh');
     }
     
     public function datosUsuario(){
-        echo json_encode($this->usu->datosUsuario());
+        echo json_encode($this->usu->usuario($this->input->post('id')));
+    }
+    
+    public function cambioPass(){
+        if($this->usu->cambiarPass($this->input->post('password')))
+             redirect('usuario', 'refresh');
     }
 }
+/* End of file Usuario.php */
+/* Location: ./application/controllers/Usuario.php */
